@@ -20,20 +20,20 @@ typedef struct
 	BOOL track_mode,		// Playing a single track or a playlist. Need to be known to 
 							// know what to display on 'Main' tab.
 	SHORT_UINT volume 		// Expected to be b/w 0-100
-} App_state
+} App_state;
 
 
 typedef struct 
 {
 	MAGIC_INT option		// See which option is hovered (selected)
-} Option_state
+} Option_state;
 
 
 typedef struct 
 {
 	char* filename_hover,	// File which is currently hovered/selected by the user. "Enter" makes it filename_curr
 	char** playlist,		// UI Programmer must display each music from the playlist accordingly 
-} Main_state
+} Main_state;
 
 
 typedef struct 
@@ -45,7 +45,7 @@ typedef struct
 	char* year,				// Year published
 	char* metadata, 		// Contain other metadata. Not necessary to use. This is just a placeholder. 
 	
-} Music_state
+} Music_state;
 
 
 // We don't need a Help_state because it's retrieved from a help file stored in the machine -
