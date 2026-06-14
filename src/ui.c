@@ -16,12 +16,11 @@ void ui_shutdown(void)
     endwin();
 }
 
-void ui_draw(const AppState *state)
+void ui_draw(const App_state *state)
 {
     erase();
 
     mvprintw(1, 2, "Simple TUI Example");
-    mvprintw(3, 2, "Counter: %d", state->counter);
 
     mvprintw(5, 2, "UP    = increment");
     mvprintw(6, 2, "DOWN  = decrement");
