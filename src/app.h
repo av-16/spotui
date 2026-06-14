@@ -2,7 +2,8 @@
 #ifndef APP_H
 #define APP_H
 
-int app_start(void);
+void app_start(void);
+void defaultize_appstate(void);
 
 #endif
 
