@@ -1,6 +1,6 @@
 
 CC=gcc
-CFLAGS=-Wall -Wextra -std=c11
+CFLAGS=-Wall -std=c11
 LIBS=-lncurses
 
 SRC=$(wildcard src/*.c)
