@@ -53,7 +53,19 @@ void defaultize_appstate(void)
 	Appstate.volume = 40;
 }
 
-
+void app_quit(void)
+{
+	// Save current Appstate:
+	if (FILE *fp = fopen(CONFIG_DIR APPSTATE_FILE, "wb"))
+	{
+		fwrite(&Appstate, sizeof(Appstate), 1, fp);
+		fputs("\nDEBUG: Wrote Current Appstate to "CONFIG_DIR APPSTATE_FILE".", log_fp);
+	}
+	else
+	{
+		fprintf(log_fp, "\nfopen '"CONFIG_DIR APPSTATE_FILE"': %s", strerror(errno));
+	}
+}
 
 
 

@@ -8,6 +8,8 @@
 #define APPSTATE_FILE "appstate.bin"
 #define LOG_FILE "core_log.log"
 
+#define LOG_DIVIDER "\n=============================================================================================\n"
+
 
 
 

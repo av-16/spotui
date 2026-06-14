@@ -1,6 +1,7 @@
 
 #include "shared-vars.h"
 #include "app.h"
+#include "ui.h"
 #include "states.h" //unnecessary
 #include "common.h" //unnecessary
 
@@ -21,12 +22,20 @@ int main(void)
 	
 	// Do App init and restore Appstate:
 	app_start();
+	ui_init();
 	
+	// Main Loop:
+	while (Appstate.running)
+	{
+		ui_draw(&Appstate);
+	}
 	
-	
+	// App was closed. We got stuff to do:
+	app_quit();
+	ui_shutdown();
 	
 	// Cleanup and stuff:
-	fputs("\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\n", log_fp);
+	fputs(LOG_DIVIDER, log_fp);
 	fclose(log_fp);
 	return 0;
 }
