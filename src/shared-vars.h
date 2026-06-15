@@ -5,4 +5,5 @@
 extern App_state Appstate;
 extern Main_state Mainstate;
 extern Option_state Optionstate; 
-extern Music_state Musicstate; 
+extern Music_state Musicstate;
+extern FILE* log_fp;
