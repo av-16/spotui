@@ -1,10 +1,15 @@
 
-// Here, we have all common #defines , types, enums and stuff.
+// Here, we have all common types, enums and stuff.
 
 #ifndef COMMON_H
 #define COMMON_H ""
 
 #include <stddef.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <errno.h>
+#include "config.h"
 
 //START:
 
