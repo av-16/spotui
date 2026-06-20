@@ -1,6 +1,8 @@
+#NOTE: I enable gdb flag in GCC for testing purposes. Remove after use.
+
 
 CC=gcc
-CFLAGS=-Wall -std=c11
+CFLAGS=-Wall -std=c11 -g
 LIBS=-lncurses
 
 SRC=$(wildcard src/*.c)
