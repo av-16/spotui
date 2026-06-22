@@ -9,8 +9,8 @@
 
 //IMPORTANT: This header may have POSIX / Linux specifc functions . Windows support would be added in coming versions :)
 
-files_list* list_files(char *path);
-void free_filenames(files_list *filenames);
+void** list_files(char *path);
+void free_filenames(char **filenames);
 
 
 
@@ -20,18 +20,12 @@ void free_filenames(files_list *filenames);
 
 // 1. list_files() and free_filenames()
 /*
-	files_list* filenames = list_files("/");
-	if (!filenames) 
-	{
-		fputs("\nERROR FILENAMES", log_fp);
-		return 1;
-	}
+	char** filenames = list_files("/home/user/Music/english");
 	SHORT_UINT i = 0;
 	fputs("\nfilenames:", log_fp);
-	while (filenames[i].filename)
+	while (filenames[i])
 	{
 		// do stuff
-		fprintf(log_fp, "\n%s \t-> %d", filenames[i].filename, filenames[i].filetype);
 		i++;
 	}
 	free_filenames(filenames);

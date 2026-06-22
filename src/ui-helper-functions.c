@@ -7,12 +7,11 @@
 //NOTE: I am Not listing hidden files. Request of such a functionality along with it's need if you want.
 //NOTE: The following function does not Do any logging.
 //NOTE: NULL in the list of files marks end of the list, ie no more files found.
-// NOTE: Check files_list type from common.h
 // Returns NULL on Failure/Error .
-files_list* list_files(char *path)
+void** list_files(char *path)
 {
 	DIR *dir;
-	files_list *filenames;
+	void **filenames;
 	void *filename;
 	struct dirent *entry;
 	unsigned i = 0;
@@ -20,13 +19,13 @@ files_list* list_files(char *path)
 	
 	if (!(dir = opendir(path)))
 		return NULL;
-	if (!(filenames = malloc(sizeof(files_list) * 30))) 
+	if (!(filenames = malloc(sizeof(void*) * 30))) 
 		return NULL;
 	
 	while((entry = readdir(dir)))
 	{
 		if (entry->d_name[0] == '.')
-			continue;	// prevent resulting hidden files.
+			continue;	// prevent outputting hidden files.
 		
 		SHORT_UINT j=0;
 		// Try malloc multiple times until succeeds.
@@ -35,11 +34,10 @@ files_list* list_files(char *path)
 			j++;
 			if (j >= 3) 
 				return NULL;
-				// Tried malloc 3 times ,yet failed. 
+			// Tried malloc 3 times ,yet failed. 
 		}
 		strcpy(filename, entry->d_name);
-		(filenames[i]).filetype = entry->d_type;
-		(filenames[i]).filename = filename;
+		filenames[i] = filename;
 		
 		i++;
 		
@@ -50,7 +48,7 @@ files_list* list_files(char *path)
 			j=0;
 			// Try realloc for 3 times before failing
 			do {
-				temp = realloc(filenames, ((max_i += 30) * sizeof(files_list)));
+				temp = realloc(filenames, ((max_i += 30) * sizeof(void*)));
 				j++;
 				if (j >= 3) 
 					return NULL;
@@ -59,18 +57,19 @@ files_list* list_files(char *path)
 			filenames = temp;
 		}
 	}
-	(filenames[i]).filename = NULL; // Used to mark No more files in the given path , ie. end of 'filenames'
+	filenames[i] = NULL; // Used to mark No more files in the given path , ie. end of 'filenames'
 	
 	return filenames;
 }
 
 
-void free_filenames(files_list *filenames)
+void free_filenames(char **filenames)
 {
 	int i=0 ;
-	while (!(filenames[i]).filename)
-		free((filenames[i]).filename);
-	free(filenames);	
+	while (!filenames[i])
+		free(filenames[i]);
+	free(filenames);
+		
 }
 
 
