@@ -4,12 +4,17 @@
 #ifndef COMMON_H
 #define COMMON_H ""
 
+// UNIVERSAL:
 #include <stddef.h>
 #include <stdio.h>
-#include <unistd.h>
 #include <string.h>
 #include <errno.h>
 #include "config.h"
+#include <stdlib.h>
+
+// POSIX ONLY:
+#include <unistd.h>
+#include <dirent.h>
 
 //START:
 
@@ -44,7 +49,13 @@ typedef enum
 	PLAY_FILE,
 	PLAY_FOLDER,
 	PLAY_PLAYLIST,
-	ADD_PLAYLIST
+	ADD_PLAYLIST,
+	
+	// states: (used in app.c, function restore_state() )
+	APPSTATE,
+	OPTIONSTATE,
+	MAINSTATE,
+	MUSICSTATE
 	
 } MAGIC_INT;
 // No seperate tab for Online/Offline. It's like a toggle switch

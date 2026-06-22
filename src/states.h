@@ -43,7 +43,7 @@ typedef struct
 	char* album;
 	char* lyrics;
 	char* year;			// Year published
-	char* metadata;		// Contain other metadata. Not necessary to use. This is just a placeholder. 
+	char metadata[STR_LEN];		// Contain other metadata. Not necessary to use. This is just a placeholder. 
 	
 } Music_state;
 
