@@ -59,8 +59,9 @@ void restore_states(void)
 //Completed fn:
 void save_states(void)
 {
+	FILE *fp = fopen(CONFIG_DIR STATES_FILE, "wb");
 	// Save current Appstate:
-	if (FILE *fp = fopen(CONFIG_DIR STATES_FILE, "wb"))
+	if (fp)
 	{
 		// Order of writing is important:
 		fwrite(&Appstate, sizeof(Appstate), 1, fp);
