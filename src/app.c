@@ -2,10 +2,7 @@
 #include "app.h"
 #include "shared-vars.h"
 
-<<<<<<< HEAD
 
-void app_start(void)
-=======
 //NOTES:
 //	restore_$fns() return True if it restored the correct values into corresponding states. Check it
 //	defaultize_fns() should do logginf of 'using defult $state'
@@ -14,7 +11,7 @@ void app_start(void)
 
 // Fetch all states defined in states.h ,if was saved previous sesssion into a bin file:
 void restore_states(void)
->>>>>>> core
+
 {
 	// Vars:
 	FILE* fp = fopen(CONFIG_DIR STATES_FILE, "rb");
@@ -66,6 +63,10 @@ void save_states(void)
 {
 	FILE *fp = fopen(CONFIG_DIR STATES_FILE, "wb");
 	// Save current Appstate:
+<<<<<<< HEAD
+=======
+	FILE *fp = fopen(CONFIG_DIR STATES_FILE, "wb");
+>>>>>>> core
 	if (fp)
 	{
 		// Order of writing is important:

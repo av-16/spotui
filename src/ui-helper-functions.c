@@ -73,9 +73,41 @@ void free_filenames(char **filenames)
 }
 
 
+// We can later add another parameter to insert musics in the same call when we create playlist
+BOOL create_playlist(char* playlist_name)
+{
+	char *playlist = malloc(strlen(playlist_name) + strlen(PLAYLIST_DIR) + 1);
+	if (!playlist) 
+		return False;
+	sprintf(playlist, PLAYLIST_DIR"%s", playlist_name);
+	FILE *fp = fopen(playlist, "w");
+	if (!fp)
+		return False;
+		
+	
+	free(playlist);
+	fclose(fp);
+	return True;
+}
 
 
-
+// Add a single music to the playlist. file_path of form $PATH+$FILENAME
+// Functions doesn't validate if file_path exists. 
+BOOL add_to_playlist(char* playlist_name, char* file_path)
+{
+	char *playlist = malloc(strlen(playlist_name) + strlen(PLAYLIST_DIR) + 1);
+	if (!playlist) 
+		return False;
+	sprintf(playlist, PLAYLIST_DIR"%s", playlist_name);
+	FILE *fp = fopen(playlist, "a");
+	if (!fp)
+		return False;
+	free(playlist);
+	
+	fprintf(fp, "%s\n", file_path);
+	fclose(fp);
+	return True;
+}
 
 
 
