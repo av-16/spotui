@@ -9,7 +9,6 @@
 
 //IMPORTANT: This header may have POSIX / Linux specifc functions . Windows support would be added in coming versions :)
 
-
 files_list* list_files(char *path);
 void free_filenames(files_list *filenames);
 // files_list* list_playlists(char *playlist_name);
@@ -21,19 +20,24 @@ BOOL create_playlist(char* playlist_name); // Return True on success.
 // This can also be used to create a playlist:
 BOOL add_to_playlist(char* playlist_name, char* file_path);
 
-
 #endif
 
 //EXAMPLES:
 
 // 1. list_files() and free_filenames()
 /*
-	char** filenames = list_files("/home/user/Music/english");
+	files_list* filenames = list_files("/");
+	if (!filenames) 
+	{
+		fputs("\nERROR FILENAMES", log_fp);
+		return 1;
+	}
 	SHORT_UINT i = 0;
 	fputs("\nfilenames:", log_fp);
-	while (filenames[i])
+	while (filenames[i].filename)
 	{
 		// do stuff
+		fprintf(log_fp, "\n%s \t-> %d", filenames[i].filename, filenames[i].filetype);
 		i++;
 	}
 	free_filenames(filenames);

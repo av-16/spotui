@@ -9,7 +9,6 @@ App_state Appstate;
 Option_state Optionstate;
 Main_state Mainstate;
 Music_state Musicstate;
-
 FILE* log_fp;
 char key_press;
 
