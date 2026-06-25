@@ -63,10 +63,7 @@ void save_states(void)
 {
 	FILE *fp = fopen(CONFIG_DIR STATES_FILE, "wb");
 	// Save current Appstate:
-<<<<<<< HEAD
-=======
 	FILE *fp = fopen(CONFIG_DIR STATES_FILE, "wb");
->>>>>>> core
 	if (fp)
 	{
 		// Order of writing is important:
