@@ -2,7 +2,6 @@
 #include "app.h"
 #include "shared-vars.h"
 
-
 //NOTES:
 //	restore_$fns() return True if it restored the correct values into corresponding states. Check it
 //	defaultize_fns() should do logginf of 'using defult $state'
@@ -60,7 +59,6 @@ void restore_states(void)
 //Completed fn:
 void save_states(void)
 {
-	FILE *fp = fopen(CONFIG_DIR STATES_FILE, "wb");
 	// Save current Appstate:
 	FILE *fp = fopen(CONFIG_DIR STATES_FILE, "wb");
 	if (fp)
@@ -167,7 +165,6 @@ void defaultize_musicstate(void)
 	Musicstate.filename = NULL;
 	fputs("\nNOTE: Using default MusicState.", log_fp);
 }
-
 
 
 

@@ -60,7 +60,13 @@ typedef enum
 } MAGIC_INT;
 // No seperate tab for Online/Offline. It's like a toggle switch
 
-
+// Following is needed for list_files() in ui-helper-functions.h:
+typedef struct 
+{
+	char *filename;
+	unsigned char filetype;
+	
+}files_list;
 
 
 
