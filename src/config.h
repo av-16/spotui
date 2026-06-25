@@ -12,7 +12,7 @@
 
 #define STR_LEN 40 //str buff le for common uses
 
-
+#define PLAYLIST_DIR "./playlists/"
 
 
 
