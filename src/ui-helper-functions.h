@@ -11,8 +11,14 @@
 
 files_list* list_files(char *path);
 void free_filenames(files_list *filenames);
-
-
+// files_list* list_playlists(char *playlist_name);
+//		For list_playlists(), list_files() is enough. Playlists refer to texts file stored in PLAYLIST_DIR
+//		which contain all the file paths for musics in that playlist on each line. 
+//		These are not binary written and rather are just plain ASCII text of file paths seperated by newline.
+// create a playlist: Also used to delete all content of the playlist. ie empty the playlist.
+BOOL create_playlist(char* playlist_name); // Return True on success.
+// This can also be used to create a playlist:
+BOOL add_to_playlist(char* playlist_name, char* file_path);
 
 #endif
 
@@ -35,4 +41,11 @@ void free_filenames(files_list *filenames);
 		i++;
 	}
 	free_filenames(filenames);
+*/
+
+
+// 2. create_playlist() and add_to_playlist()
+/* 
+	create_playlist("english");
+	add_to_playlist("english", "/home/user/spotui/test-music/Rick Astley - Never Gonna Give You Up.mp3");
 */

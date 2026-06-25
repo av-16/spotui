@@ -44,7 +44,6 @@ int main(void)
 		BOOL pressed_enter_key = False;
 	}
 	
-	
 	// App was closed. We got stuff to do:
 	save_states();
 	ui_shutdown();
