@@ -7,4 +7,4 @@ extern Main_state Mainstate;
 extern Option_state Optionstate; 
 extern Music_state Musicstate;
 extern FILE* log_fp;
-extern char key_press;
+extern int key_press;

@@ -10,7 +10,7 @@ Option_state Optionstate;
 Main_state Mainstate;
 Music_state Musicstate;
 FILE* log_fp;
-char key_press;
+int key_press;
 
 int main(void)
 {   
@@ -30,9 +30,9 @@ int main(void)
 	// Main Loop:
 	while (Appstate.running)
 	{
-		ui_draw(&Appstate);
-		sleep(0.33);
-		key_press = getchar();
+		timeout(167);
+		key_press = getch();
+		ui_draw(&Appstate,key_press);
 		
 		if (key_press=='q') break; // Change
 		else if (key_press=='\n') pressed_enter_key = True;
