@@ -3,7 +3,7 @@
 
 CC=gcc
 CFLAGS=-Wall -std=c11 -g
-LIBS=-lncurses
+LIBS=-lncurses -lm
 
 SRC=$(wildcard src/*.c)
 
